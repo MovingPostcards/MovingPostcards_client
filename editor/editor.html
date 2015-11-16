@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"  ng-app="movingPostcard">
+<head>
+    
+    <link rel="stylesheet" href="01_base.css" />
+    <link rel="stylesheet" href="layout.css" />
+    <link rel="stylesheet" href="style.css" />
+  
+</head>
+  <body scroll-y ng-controller="mainCtrl" layout-align="start center">
+	
+  	<canvas id="buffer" width="480" height="270" style="position:fixed; display:none; "></canvas>
+
+
+ 	
+
+	<div class="container">
+
+		<h1> Moving Postcard Editor </h1>
+		
+ 		<p>
+ 			Project title:
+ 			<input class="title" type="text" ng-model="project.name" ng-change="prepareToSave()" />
+	 	</p>
+		
+
+		<div class="item" ng-class="getClassListening(item)"
+		ng-repeat="item in items">
+			  
+			  <h3>
+			  		{{getTypeLabel(item)}} file: {{item.video_name}}
+			  		<button ng-click="setForListening(item)">{{labelPairing}}</button>
+			  </h3>
+			  <p>Title: <input ng-change="prepareToSave()" type="text" ng-model="item.title" /></p>
+			  <p>Author: <input ng-change="prepareToSave()" type="text" ng-model="item.author" /></p>
+			  <p>CARD ID: <input ng-change="prepareToSave()" type="text" ng-model="item.card_id" /></p>
+			  <p>Description: <input ng-change="prepareToSave()" type="text" ng-model="item.text" /></p>
+			  <p>Loop: <input min="1" ng-change="prepareToSave()" type="number" ng-model="item.loop" /></p>
+			  
+			  <video ng-if="!item.gif" ng-attr-id="video_{{$index}}" ng-src="{{item.video_name}}" loop controls></video>
+			  <img   ng-if="item.gif"  ng-attr-id="video_{{$index}}" ng-src="{{item.video_name}}" ></img>
+			  <button class="btn_grabber" ng-click="captureAndSave(item, $index)">Play the Video and Click here to grab a thumb</button>
+			  <div class="thumbs" layout="row">
+				  <img 
+				  ng-repeat="img in item.thumbs"
+				  flex ng-src="{{img.src}}" ng-click="removeThumb(item, img);"/>
+			  </div>
+			  <p>Click on each thumb to delete it</p>
+			  
+		</div>
+
+	</div>
+	  
+
+	  
+
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/socket.io-client/socket.io.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	  
+  </body>
+</html>
+
+

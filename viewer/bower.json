@@ -1,0 +1,15 @@
+{
+  "name": "MovingPostard_Viewer",
+  "dependencies": {
+    "jquery": "*",
+    "jquery.transit": "*",
+    "angular": "~1.4.0",
+    "angular-animate": "~1.4.0",
+    "angular-local-storage": "*",
+    "ng-flow": "*",
+    "socket.io-client": "~1.2.1"
+  },
+  "resolutions": {
+    "angular": "~1.4.0"
+  }
+}

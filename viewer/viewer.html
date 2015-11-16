@@ -1,0 +1,93 @@
+<html ng-app="movingPostcard">
+
+<head>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body ng-controller="mainCtrl">
+    
+    <!-- <div class="bar">
+        <img src="some_logo.png" />
+    </div> -->
+    
+    <div class="container">
+
+        <div class="item" ng-class="getClass(item)" ng-attr-id="item_{{item.id}}"
+         ng-repeat="item in items" ng-click="toggle(item, $event)">
+            <div class="item_wrapper">
+                <div class="thumbs">
+                    <img ng-repeat="img in item.thumbs" ng-show="img.visible" ng-src="{{img.src}}" />
+                </div>
+                <video ng-attr-id="video_{{item.id}}" ng-if="item.video_name && item.open && !item.gif" ng-src="{{baseRoot + '/' + item.video_name}}" autoplay></video>
+                <img class="gif" ng-attr-id="video_{{item.id}}" ng-if="item.video_name && item.open && item.gif" ng-src="{{baseRoot + '/' + item.video_name}}" />
+                <img ng-src="placeholder.gif" />
+            </div>
+        </div>
+
+    </div>
+    <!-- <div class="bar"><p>Footer</p></div> -->
+    
+    <div class="sticker" ng-show="isPresent">
+        <p>Project: {{projectName}} - Author: {{authorName}}</p>
+    </div>
+
+    
+    
+    
+    <style>
+        /*
+            STYLE CONFIGURATION
+        */
+        body{
+            background-color: #000;   
+        }
+        .item{
+            padding: 5px;
+/*            background-color: #ff0;
+*/            position: relative;    
+        }
+        
+        .item_wrapper{
+            padding:5px;
+/*            background-color: #0ff;
+*/            position: relative;
+        }
+        
+        
+        .item video{
+            width: calc(100% - 10px);
+        }
+        .item .thumbs img{
+            width: calc(100% - 10px);
+        }
+        
+        
+        .item img.ng-hide-add.ng-hide-add-active,
+        .item img.ng-hide-remove.ng-hide-remove-active {
+            transition:all linear 0.25s;
+        }
+
+        .item img.ng-hide {
+            opacity:0;
+        }
+        
+        
+        
+        .container{
+            width: 100%;  /* default is 100% but you can reduce it if needs to change the grid viewport  */ 
+        }
+
+    </style>
+    
+    
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/jquery.transit/jquery.transit.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/socket.io-client/socket.io.js"></script>
+    <script src="libs/dmStyle.js"></script>
+    <script src="js/main.js"></script>
+    <style>.item {flex: 0 0 {{perc}};}</style>
+</body>
+</html>

@@ -1,0 +1,100 @@
+*{
+    box-sizing: border-box;
+}
+
+html, body{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	/*overflow: visible;*/
+}
+
+body{
+    margin:0;
+    padding:0;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.bar{
+    color: #000;
+    background-color: #fff;
+    display:flex;
+    flex: 0 0 auto;
+    height: 50px;
+	min-height: 50px;
+	width: 100%;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    flex: 0 0 auto;
+}
+
+.item{
+    flex: 0 0 25%;
+    position: relative;
+}
+
+.item_wrapper{
+    width: 100%;
+    position: relative;
+}
+
+
+.item img{
+    width: 100%;
+    margin: auto;
+}
+
+.item video, .item .gif{
+    width: 100%;
+    position:absolute;
+}
+
+.item .thumbs img{
+    position:absolute;
+}
+
+.item .thumbs{
+}
+
+.item.presented{
+    z-index: 9999;   
+}
+
+
+.sticker{
+    font-family: "HelveticaNeue", arial;
+    font-weight: 200;
+    font-style: normal;
+    background-color: rgba(255,255,255,.25);
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    left:0;
+    width:100%;
+    z-index: 99999;
+    transition:all linear .5s;
+    -webkit-transition: all ease-in-out .75s;
+    padding: 10px;
+    text-align: center;
+}
+.sticker p{
+    font-weight: 200;
+    margin:0;
+    padding: 5px;
+    font-size: 12px;
+}
+
+.sticker.ng-hide {
+    -webkit-transform: translate(0, 300px);
+    transform: translate(0, 300px);
+}

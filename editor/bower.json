@@ -1,0 +1,11 @@
+{
+  "name": "MovingPostard_Editor",
+  "dependencies": {
+    "jquery": "*",
+    "angular": "~1.4.0",
+    "socket.io-client": "~1.2.1"
+  },
+  "resolutions": {
+    "angular": "~1.4.0"
+  }
+}
