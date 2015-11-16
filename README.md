@@ -1,13 +1,3 @@
-#To Do
-
-- pulire codice per github
-- finire doc utilizzo
-- reportino di tutto quello che è stato fatto
-
-
-
-
----
 
 ## Hardware setup (Arduino)
 
