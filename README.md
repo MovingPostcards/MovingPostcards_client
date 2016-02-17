@@ -15,7 +15,7 @@
 
 ### Installation
 
-- Install Node.js
+- Install Node.js 0.12.x like [this](https://nodejs.org/en/blog/release/v0.12.7/) (recent versions won't work due some issue with the serial library)
 - Open the Terminal
 - Type ```cd ``` and drag and drop the MovingPostcard folder (or type/paste the full path) and hit Enter
 - Type ```sudo npm install``` (needs XCode to compile some native modules)
